@@ -1,0 +1,26 @@
+body{
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Radley', Arial, serif;
+	font-size: 18px;
+}
+
+#caja-login{
+	border: 1px solid black;
+	width: 250px;
+	height: 160px;
+	padding: 10px;
+	position: absolute;
+}
+
+#login-titulo{
+	font-size: 28px;
+	font-weigh: bold;
+	width: 100%;
+	text-align: center;
+}
+
+#login-boton{
+	margin-left: 90px;
+	margin-top: 11px;
+}

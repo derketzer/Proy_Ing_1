@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "CIMC"
+AuthUserFile "/home/ketzer/.htpasswds/public_html/aplikt.com/passwd"
+require valid-user

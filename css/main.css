@@ -1,0 +1,305 @@
+body{
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial;
+	font-size: 14px;
+}
+
+a{
+	text-decoration: none;
+	color: #000000;
+}
+
+img{
+	border: 0px;
+}
+
+#footer-cimc{
+	height: 50px;
+	clear: both;
+	width: 100%;
+	text-align: center;
+	background-color: #CEDBF9;
+	padding-top: 20px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+a:hover{
+	text-decoration: underline
+}
+
+.seccion{
+	height: 30px;
+	background-color: #283878;
+	color: #CCCEC9;
+	text-align: center;
+	font-weight: bold;
+	line-height: 30px;
+	border-bottom: 3px solid #EFEFEF;
+	float: left;
+	font-size: 14px;
+	padding: 0px 8px 0px 8px;
+	margin-right: 5px;
+}
+
+.limpia{
+	clear: both;
+}
+
+.subseccion{
+	padding: 5px;
+	height: 15px;
+	background-color: #A0B9F3;
+	color: #FF9900;
+	text-align: center;
+	font-weight: bold;
+	line-height: 10px;
+	float: left;
+	font-size: 12px;
+}
+
+#secciones{
+	height: 30px;
+	border-bottom: 3px solid #EFEFEF;
+	clear: both;
+}
+
+#subsecciones{
+	background-color: #A0B9F3;
+	width: 100%;
+}
+
+.seccionA{
+	border-bottom: 3px solid #283878;
+	color: #FFFFFF;
+	border-right: 3px solid #EFEFEF;
+	border-left: 3px solid #EFEFEF;
+	border-top: 3px solid #EFEFEF;
+	margin-top: -3px;
+}
+
+.subSeccionA{
+	color: #FFFFFF;
+}
+
+#top{
+	background-color: #CEDBF9;
+}
+
+#migajas, #links-top{
+	font-size: 12px;
+	color: #000000;
+	height: 70px;
+	margin-left: 10px;
+	padding-top: 10px;
+	float: left;
+	width: 48%;
+	font-weight: bold;
+}
+
+#links-top{
+	text-align: right;
+	margin-right: 10px;
+}
+
+#main, #listado{
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+.espacio-left{
+	float: left;
+	width: 10px;
+	height: 15px;
+}
+
+#marco-left{
+	width: 610px;
+	float: left;
+	margin-right: 40px;
+}
+
+#marco-right{
+	width: 300px;
+	float: left;
+}
+
+.row{
+	clear: both;
+}
+
+.col-left{
+	float: left;
+}
+
+.col-right{
+	float: right;
+}
+
+.input-leyenda{
+	background-color: #95D1EE;
+	width: 590px;
+	height: 20px;
+	line-height: 20px;
+	margin-bottom: 7px;
+	padding: 5px 0px 5px 10px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #EFEFEF;
+}
+
+.formulario-input{
+	height: 25px;
+	line-height: 25px;
+	width: 595px;
+	margin-bottom: 10px;
+	border: 1px solid #95D1EE;
+}
+
+.formulario-select{
+	height: 25px;
+	line-height: 25px;
+	width: 600px;
+	margin-bottom: 10px;
+	background-color: #FFFFFF;
+	border: 1px solid #95D1EE;
+}
+
+fieldset{
+	margin-bottom: 15px;
+}
+
+.busca-leyenda{
+	background-color: #95D1EE;
+	width: 290px;
+	height: 20px;
+	line-height: 20px;
+	margin-bottom: 7px;
+	padding: 5px 0px 5px 10px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #EFEFEF;
+}
+
+.busca-input{
+	height: 25px;
+	line-height: 25px;
+	width: 295px;
+	margin-bottom: 10px;
+	border: 1px solid #95D1EE;
+}
+
+.busca-select{
+	height: 25px;
+	line-height: 25px;
+	width: 295px;
+	margin-bottom: 10px;
+	border: 1px solid #95D1EE;
+	background-color: #FFFFFF;
+}
+
+.boton{
+	width: 110px;
+	height: 40px;
+	border: 1px solid #95D1EE;
+	background-color: #FFFFFF;
+	font-size: 16px;
+	font-weight: bold;
+	color: #FF9900;
+	margin-left: 95px;
+}
+
+#caja-resultados{
+	display: none;
+}
+
+.busqueda-resultado{
+	height: 15px;
+	border: 1px solid #000000;
+	width: 288px;
+	padding: 0px 0px 0px 10px;
+	font-size: 11px;
+	margin-bottom: 5px;
+	line-height: 15px;
+	cursor: pointer;
+	border: 1px solid #95D1EE;
+}
+
+.busqueda-resultado:hover{
+	background-color: #95D1EE;
+	color: #FFFFFF;
+}
+
+#busqueda-links{
+	font-size: 12px;
+	width: 295px;
+}
+
+#busqueda-paginado{
+	float: left;
+	width: 49%;
+}
+
+#busqueda-paginas{
+	float: left;
+	width: 49%;
+	text-align: right;
+}
+
+#busqueda-paginado a{
+	cursor: pointer;
+}
+
+#input-tiny{
+	width: 596px;
+}
+
+#correcto{
+	width:615px;
+	padding:5px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight:bold;
+	color: green;
+	background-color: #CCCCCC;
+	margin-bottom: 10px;
+}
+
+#error{
+	width:615px;
+	padding:5px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight:bold;
+	color: red;
+	background-color: #CCCCCC;
+	margin-bottom: 10px;
+}
+
+.tache{
+	height: 15px;
+}
+
+.ojito{
+	height: 15px;
+}
+
+fieldset{
+	border: 1px solid #95D1EE;
+}
+
+.qa-resultado{
+	width: 590px;
+	text-align: right;
+	margin-top: 20px;
+}
+
+.select-corto{
+	width: 490px;
+}
+
+.costo-corto{
+	width: 80px;
+	margin-left: 20px;
+}

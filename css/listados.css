@@ -1,0 +1,26 @@
+.row{
+	clear: both;
+	width: 980px;
+	height: 15px;
+	padding: 5px;
+}
+
+.col-left{
+	float: left;
+	width: 150px;
+	font-size: 11px;
+	text-align: center;
+}
+
+.tabla-header{
+	background-color: #CCCCCC;
+	width: 980px;
+	height: 15px;
+	padding: 5px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+.row-impar{
+	background-color: #EEEEEE;
+}
