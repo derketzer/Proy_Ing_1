@@ -33,64 +33,33 @@
 
 			<div id="login-titulo">CIMC</div>
 
-			<?php
-				$forma = new form();
-				echo $forma->start(array(
-					"method" => "POST",
-					"action" => "check.php",
-					"id" => "login-form"
-				));
-
-				echo "Usuario: &nbsp;&nbsp;".$forma->input(array(
-					"name" => "usuario",
-					"id" => "usuario"
-				));
-
-				echo "<br />";
-
-				echo "Password: ".$forma->secret(array(
-					"name" => "password",
-					"id" => "password"
-				));
-
-				echo "<br /><br />";
+			<form method="POST" action="check.php" id="login-form">
+				Usuario: &nbsp;&nbsp; <input type="text" name="usuario" id="usuario" />
+				<br />
+				Password: <input type="password" name="password" id="password" />
+				<br /><br />
 				
-				echo '
-					Campa&ntilde;a: &nbsp;&nbsp;
-					<select name="id_campana">
-				';
+				Campa&ntilde;a: &nbsp;&nbsp;
+				<select name="id_campana">
 				
-				while($fila = $consulta->fetch_assoc()){
-					echo '<option value="'.$fila['id_campana'].'">'.$fila['n_nombre'].'</option>';
-				}
-				echo '
-					</select>
-				';
+				<?php
+					while($fila = $consulta->fetch_assoc()){
+						echo '<option value="'.$fila['id_campana'].'">'.$fila['n_nombre'].'</option>';
+					}
+				?>
+				</select>
+				
+				<br />
 
-				echo "<br />";
+				<input type="button" name="enviar" value="Entrar" id="login-boton" onclick="loguear();" />
 
-				echo $forma->button(array(
-					"name" => "enviar",
-					"value" => "Entrar",
-					"id" => "login-boton",
-					"onclick" => 'loguear();'
-				));
+				<input type="hidden" name="challenge" value="<?php echo $_SESSION['challenge']; ?>" id="challenge" />
 
-				echo $forma->hidden(array(
-					"name" => "challenge",
-					"value" => $_SESSION['challenge'],
-					"id" => "challenge"
-				));
+				<input type="hidden" name="md5_pass" value="" id="md5_pass" />
 
-				echo $forma->hidden(array(
-					"name" => "md5_pass",
-					"value" => "",
-					"id" => "md5_pass"
-				));
+				<input type="hidden" name="url" value="<?php echo $_GET['url']; ?>" />
 
-				echo $forma->end();
-			?>
-
+			</form>
 		</div>
 
 	</body>

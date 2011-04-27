@@ -30,6 +30,7 @@
 	$consulta->close();
 
 	$fecha = explode(" ", $fila['d_nacimiento']);
+	$fechota = $fecha[0];
 	$fecha = explode("-", $fecha[0]);
 	$fila['nac_dia'] = $fecha[2];
 	$fila['nac_mes'] = $fecha[1];
@@ -66,10 +67,10 @@
 			<div>
 				<div class="input-leyenda">Fecha de Nacimiento</div>
 				<div>
-					D&iacute;a: <select id="nac_dia" name=""><?php for($n=1;$n<32;$n++) echo '<option value="'.$n.'"'.(($fila['nac_dia']==$n)?' selected="selected"':'').'>'.$n.'</option>'; ?></select>
-					Mes: <select id="nac_mes" name=""><?php for($n=1;$n<13;$n++) echo '<option value="'.$n.'"'.(($fila['nac_mes']==$n)?' selected="selected"':'').'>'.$n.'</option>'; ?></select>
-					A&ntilde;o: <select id="nac_anho" name=""><?php for($n=2011;$n>1900;$n--) echo '<option value="'.$n.'"'.(($fila['nac_anho']==$n)?' selected="selected"':'').'>'.$n.'</option>'; ?></select>
-					<input type="hidden" id="fecha-input" name="d_nacimiento" />
+					D&iacute;a: <select id="dia" onchange="arregla_fecha();"><?php for($n=1;$n<32;$n++) echo '<option value="'.$n.'"'.(($fila['nac_dia']==$n)?' selected="selected"':'').'>'.$n.'</option>'; ?></select>
+					Mes: <select id="mes" onchange="arregla_fecha();"><?php for($n=1;$n<13;$n++) echo '<option value="'.$n.'"'.(($fila['nac_mes']==$n)?' selected="selected"':'').'>'.$n.'</option>'; ?></select>
+					A&ntilde;o: <select id="anho" onchange="arregla_fecha();"><?php for($n=2011;$n>1900;$n--) echo '<option value="'.$n.'"'.(($fila['nac_anho']==$n)?' selected="selected"':'').'>'.$n.'</option>'; ?></select>
+					<input type="hidden" id="fecha-input" name="d_nacimiento" value="<?php echo $fechota; ?>" />
 				</div>
 			</div>
 			

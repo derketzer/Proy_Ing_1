@@ -12,7 +12,7 @@
 		die();
 	}else{
 		if($_SESSION['LogueadoEmp'] == ""){
-			header("location: index.php");
+			header("location: index.php?url=".$_SERVER['REQUEST_URI']);
 			die();
 		}elseif($_SESSION['NivelEmp']>=$permisos[$url] && $_SESSION['NivelEmp']!=""){
 			header("location: index.php");

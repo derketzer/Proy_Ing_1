@@ -38,13 +38,19 @@
 			
 			foreach($producto as $key=>$prod){
 				$val = array();
-				$val['id_consulta'] = $id_insertado;
-				$val['id_producto'] = $prod;
-				$val['q_costo'] = $producto_costo[$key];
+				$dat = array();
+				$dat['id_consulta'] = $val['id_consulta'] = $id_insertado;
+				$dat['id_producto'] = $val['id_producto'] = $prod;
+				$dat['q_costo'] = $val['q_costo'] = $producto_costo[$key];
 				$val['d_fecha_creacion'] = date("Y-m-d H:i:s");
 				$val['d_fecha_modificacion'] = date("Y-m-d H:i:s");
+				$dat['d_fecha'] = date("Y-m-d H:i:s");
 				$val['b_pagado'] = "0";
+				$dat['id_campana'] = $_SESSION['CampanaEmp'];
+				$dat['id_empleado'] = $_SESSION['IdEmp'];
+
 				$mysqli->insert("orden",$val);
+				$mysqli->insert("ventas",$dat);
 			}
 			
 			$msg ='<div id="correcto">La consulta fue guardada exitosamente.</div>';
@@ -66,16 +72,16 @@
 		if($fila['q_cantidad'] >= 1){
 			$consulta_temp = $mysqli->select(
 				"producto",
-				"id_producto,n_nombre,q_costo",
-				array("id_producto" => $fila['id_producto'],
-					"b_activo" => "1"
+				"id_producto,n_nombre,q_costo,b_activo",
+				array("id_producto" => $fila['id_producto']
 				),
 				array("id_producto" => "ASC")
 			);
 			$fila_temp = $consulta_temp->fetch_assoc();
 			$consulta_temp->close();
 
-			$productos .= '<option value="'.$fila['id_producto'].'" val-costo="'.$fila_temp['q_costo'].'" val-cantidad="'.$fila['q_cantidad'].'">'.$fila_temp['n_nombre'].'</option>';
+			if($fila_temp['b_activo'] != 0)
+				$productos .= '<option value="'.$fila['id_producto'].'" val-costo="'.$fila_temp['q_costo'].'" val-cantidad="'.$fila['q_cantidad'].'">'.$fila_temp['n_nombre'].'</option>';
 		}
 	}
 

@@ -1,4 +1,4 @@
-<?php
+	<?php
 	@require_once("inc/config.inc.php");
 	@require_once($_SERVER['DOCUMENT_ROOT']."inc/bouncer.inc.php");
 	@require_once($_SERVER['DOCUMENT_ROOT']."inc/mysqli.class.php");
@@ -66,7 +66,8 @@
 						a.id_empleado,
 						b.n_nombre,
 						b.n_apellido,
-						c.b_asistio IS NULL AS noAsistencia
+						c.b_asistio IS NULL AS noAsistencia,
+						a.id_campana
 					FROM
 						empleado_campana AS a
 					INNER JOIN
@@ -76,7 +77,8 @@
 					LEFT JOIN
 						asistencia AS c
 					ON
-						a.id_empleado = c.id_empleado
+						a.id_empleado = c.id_empleado AND
+						c.id_campana = '".$_SESSION['CampanaEmp']."'
 					WHERE
 						a.id_campana = '".$_SESSION['CampanaEmp']."'
 				");
@@ -84,7 +86,7 @@
 				while($fila = $consulta->fetch_assoc()){
 					if($fila['noAsistencia'] == 0){
 						echo '
-							<div class="busqueda-resultado" onclick="javascript:qResultado(this);" val-nombre="'.$fila['n_nombre'].' '.$fila['n_apellido'].'" val-id="'.$fila['id_empleado'].'" style="width:600px;">
+							<div class="busqueda-resultado" onclick="javascript:qResultado(this);" val-nombre="'.$fila['n_nombre'].' '.$fila['n_apellido'].'" val-id="'.$fila['id_empleado'].'" val-campana="'.$fila['id_campana'].'" style="width:600px;">
 								'.$fila['n_nombre'].' '.$fila['n_apellido'].'
 							</div>
 						';
@@ -112,7 +114,8 @@
 						a.id_empleado,
 						b.n_nombre,
 						b.n_apellido,
-						c.b_asistio IS NULL AS noAsistencia
+						c.b_asistio IS NULL AS noAsistencia,
+						a.id_campana
 					FROM
 						empleado_campana AS a
 					INNER JOIN
@@ -122,7 +125,8 @@
 					LEFT JOIN
 						asistencia AS c
 					ON
-						a.id_empleado = c.id_empleado
+						a.id_empleado = c.id_empleado AND
+						c.id_campana = ".$_SESSION['CampanaEmp']."
 					WHERE
 						a.id_campana = '".$_SESSION['CampanaEmp']."'
 				");
@@ -130,7 +134,7 @@
 				while($fila = $consulta->fetch_assoc()){
 					if($fila['noAsistencia'] == 1){
 						echo '
-							<div class="busqueda-resultado" onclick="javascript:aResultado(this);" val-nombre="'.$fila['n_nombre'].' '.$fila['n_apellido'].'" val-id="'.$fila['id_empleado'].'">
+							<div class="busqueda-resultado" onclick="javascript:aResultado(this);" val-nombre="'.$fila['n_nombre'].' '.$fila['n_apellido'].'" val-id="'.$fila['id_empleado'].'" val-campana="'.$fila['id_campana'].'">
 								'.$fila['n_nombre'].' '.$fila['n_apellido'].'
 							</div>
 						';

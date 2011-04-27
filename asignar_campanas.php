@@ -14,7 +14,7 @@
 		if($mysqli->insert("empleado_campana",$_POST)){
 			$msg ='<div id="correcto">El empleado fue asignado exitosamente a la campa&ntilde;a.</div>';
 		}else{
-			$msg = '<div id="error">Error al asignar el empleado a la campa&ntilde;a.</div>';
+			$msg = '<div id="error">Error, el empleado ya est&aacute; asignado a la campa&ntilde;a.</div>';
 		}
 	}
 

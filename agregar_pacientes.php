@@ -51,9 +51,9 @@
 			<div>
 				<div class="input-leyenda">Fecha de Nacimiento</div>
 				<div>
-					D&iacute;a: <select id="nac_dia" name=""><?php for($n=1;$n<32;$n++) echo '<option value="'.$n.'">'.$n.'</option>'; ?></select>
-					Mes: <select id="nac_mes" name=""><?php for($n=1;$n<13;$n++) echo '<option value="'.$n.'">'.$n.'</option>'; ?></select>
-					A&ntilde;o: <select id="nac_anho" name=""><?php for($n=2011;$n>1900;$n--) echo '<option value="'.$n.'">'.$n.'</option>'; ?></select>
+					D&iacute;a: <select id="dia" onchange="arregla_fecha()"><?php for($n=1;$n<32;$n++) echo '<option value="'.$n.'">'.$n.'</option>'; ?></select>
+					Mes: <select id="mes" onchange="arregla_fecha()"><?php for($n=1;$n<13;$n++) echo '<option value="'.$n.'">'.$n.'</option>'; ?></select>
+					A&ntilde;o: <select id="anho" onchange="arregla_fecha()"><?php for($n=2011;$n>1900;$n--) echo '<option value="'.$n.'">'.$n.'</option>'; ?></select>
 					<input type="hidden" id="fecha-input" name="d_nacimiento" />
 				</div>
 			</div>

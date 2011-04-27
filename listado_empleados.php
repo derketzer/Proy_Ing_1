@@ -38,10 +38,10 @@
 		echo '
 			<div class="row '.$extra.'">
 				<div class="col-left"><a href="editar_empleados.php?id_empleado='.$fila['id_empleado'].'"><b>'.$fila['n_nombre'].'</b></a></div>
-				<div class="col-left">'.$fila['n_apellido'].'</div>
+				<div class="col-left">'.$fila['n_apellido'].'&nbsp;</div>
 				<div class="col-left">'.$fila['a_email'].'&nbsp;</div>
 				<div class="col-left">'.($fila['a_telefono']==0?"&nbsp;":$fila['a_telefono']).'</div>
-				<div class="col-left">'.$fila['t_puesto'].'</div>
+				<div class="col-left">'.$fila['t_puesto'].'&nbsp;</div>
 				<div class="col-left"><a href="borrar_empleados.php?id_empleado='.$fila['id_empleado'].'"><img src="img/tache.png" class="tache" /></a></div>
 			</div>
 		';

@@ -15,10 +15,15 @@
 
 	if($_POST['guardar']){
 		if($_POST['id_producto'] != "" && $_POST['id_campana'] != "" && $_POST['q_cantidad'] != ""){
-			if($mysqli->insert("producto_campana",$_POST))
-				$msg ='<div id="correcto">El producto fue guardado exitosamente.</div>';
-			else
+			if($mysqli->insert("producto_campana",$_POST)){
+				$_POST['d_fecha'] = date("Y-m-d H:i:s");
+				if($mysqli->insert("entradas_salidas", $_POST))
+					$msg ='<div id="correcto">El producto fue guardado exitosamente.</div>';
+				else
+					$msg ='<div id="correcto">El inventario no pudo agregarse.</div>';
+			}else{
 				$msg = '<div id="error">Error al insertar el producto.</div>';
+			}
 		}else{
 			$msg = '<div id="error">Error al insertar el producto, faltan datos.</div>';
 		}

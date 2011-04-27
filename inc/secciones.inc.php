@@ -26,7 +26,9 @@
 			"Asignar Campa&ntilde;a" => "asignar_campanas.php",
 			"Asistencias" => "asistencias.php",
 		),
-		//"Reportes" => "",
+		"Reportes" => array(
+			"Reporte Ventas" => "reporte_ventas.php"
+		),
 		"Inventarios" => array(
 			"Inventarios" => "listado_inventarios.php",
 			"Nuevo" => "agregar_inventarios.php"
@@ -58,7 +60,8 @@
 		"borrar_proveedores.php" => "2",
 		"borrar_inventarios.php" => "2",
 		"borrar_pacientes.php" => "2",	
-	        "borrar_campanas.php"  => "2",		
+	       "borrar_campanas.php"  => "2",
+		"borrar_consultas.php" => "2",	
 
 		"listado_empleados.php" => "2",
 		"listado_productos.php" => "2",
@@ -71,7 +74,9 @@
 		"detalles_consultas.php" => "2",
 		"asignar_campanas.php" => "2",
 		"asistencias.php" => "2",
-		"registrar_asistencia.php" => "2"
+		"registrar_asistencia.php" => "2",
+
+		"reporte_ventas.php" => "2"
 	);
 
 	$niveles = array(

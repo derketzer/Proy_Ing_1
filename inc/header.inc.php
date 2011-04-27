@@ -23,6 +23,7 @@
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
 		<link rel="stylesheet" type="text/css" href="css/pirobox.css" />
 		<link rel="stylesheet" type="text/css" href="/css/style_1/style.css"/>
+		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css" />
 	</head>
 	
 	<body>

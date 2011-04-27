@@ -38,11 +38,16 @@
 			$_SESSION['CampanaEmp'] = $_POST['id_campana'];
 			$_SESSION['NombreEmp'] = $nivel['n_nombre']. " ".$nivel['n_apellido'];
 
-			if($homeLanding[$nivel['t_nivel']] == ""){
-				header("location: index.php");
+			if($_POST['url'] != ""){
+				header("location: ".$_POST['url']);
 			}else{
-				header("location: ".$homeLanding[$nivel['t_nivel']]);
+				if($homeLanding[$nivel['t_nivel']] == ""){
+					header("location: index.php");
+				}else{
+					header("location: ".$homeLanding[$nivel['t_nivel']]);
+				}
 			}
+
 			exit();
 		}else{
 			$mysqli->query("INSERT INTO logins VALUES(".$nivel['id_empleado'].", '".$user."', 1, NOW(), '".$_SERVER['REMOTE_ADDR']."')");

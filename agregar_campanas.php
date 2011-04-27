@@ -6,6 +6,8 @@
 	@include_once($_SERVER['DOCUMENT_ROOT']."inc/fun.inc.php");
 	@include_once($_SERVER['DOCUMENT_ROOT']."inc/header.inc.php");
 
+	echo cargaCSS("http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css");
+
 	$mysqli = new db(false);
 	
 	if($_POST['guardar']){
@@ -36,7 +38,29 @@
 				<div class="input-leyenda">Direccion</div>
 				<div><input type="text" name="a_direccion" class="formulario-input" /></div>
 			</div>
-			
+
+			<div>
+				<div class="input-leyenda">Fecha de Inicio</div>
+				<div>
+					D&iacute;a: <select id="dia" onchange="arregla_fecha();"><?php for($n=1;$n<32;$n++) echo '<option value="'.$n.'">'.$n.'</option>'; ?></select>
+					Mes: <select id="mes" onchange="arregla_fecha();"><?php for($n=1;$n<13;$n++) echo '<option value="'.$n.'">'.$n.'</option>'; ?></select>
+					A&ntilde;o: <select id="anho" onchange="arregla_fecha();"><?php for($n=2011;$n>1900;$n--) echo '<option value="'.$n.'">'.$n.'</option>'; ?></select>
+					<input type="hidden" id="fecha-input" name="d_fecha_inicio" />
+				</div>
+			</div>
+
+			<br />
+
+			<div>
+				<div class="input-leyenda">Fecha de Fin</div>
+				<div>
+					D&iacute;a: <select id="dia2" onchange="arregla_fecha(2);"><?php for($n=1;$n<32;$n++) echo '<option value="'.$n.'">'.$n.'</option>'; ?></select>
+					Mes: <select id="mes2" onchange="arregla_fecha(2);"><?php for($n=1;$n<13;$n++) echo '<option value="'.$n.'">'.$n.'</option>'; ?></select>
+					A&ntilde;o: <select id="anho2" onchange="arregla_fecha(2);"><?php for($n=2011;$n>1900;$n--) echo '<option value="'.$n.'">'.$n.'</option>'; ?></select>
+					<input type="hidden" id="fecha-input2" name="d_fecha_fin" />
+				</div>
+			</div>
+		
 			<br />
 
 		</fieldset>

@@ -1,5 +1,7 @@
 <?php
 
+	$id_consulta = $_GET['id_consulta'];
+
 	if($id_consulta == ""){
 		echo "No hay identificador de consulta!";
 		die();

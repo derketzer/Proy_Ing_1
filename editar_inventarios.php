@@ -15,12 +15,17 @@
 
 	if($_POST['guardar']){
 		$id_producto = $_POST['id_producto'];
-		unset($_POST['guardar']);
 
-		if($mysqli->update("producto_campana",$_POST,array("id_campana"=>$id_campana, "id_producto"=>$id_producto)))
-			$msg ='<div id="correcto">El producto fue guardado exitosamente.</div>';
-		else
+		if($mysqli->query("UPDATE producto_campana SET q_cantidad=q_cantidad+".$_POST['q_cantidad']." WHERE id_campana='".$_POST['id_campana']."' AND id_producto='".$id_producto."'")){
+			$_POST['d_fecha'] = date("Y-m-d H:i:s");
+
+			if($mysqli->insert("entradas_salidas", $_POST))
+				$msg ='<div id="correcto">El producto fue guardado exitosamente.</div>';
+			else
+				$msg ='<div id="correcto">El inventario no se pudo guardar.</div>';
+		}else{
 			$msg = '<div id="error">Error al insertar el producto.</div>';
+		}
 	}
 
 	echo $msg;
@@ -70,7 +75,7 @@
 
 			<div>
 				<div class="input-leyenda">Cantidad</div>
-				<div><input type="text" name="q_cantidad" class="formulario-input" value="<?php echo $cantidad; ?>" /></div>
+				<div><input type="text" name="q_cantidad" class="formulario-input" value="" style="width:500px;" /> (Actual <?php echo $cantidad; ?>) </div>
 			</div>
 
 			<br />

@@ -6,24 +6,26 @@
 	@include_once($_SERVER['DOCUMENT_ROOT']."inc/fun.inc.php");
 	@include_once($_SERVER['DOCUMENT_ROOT']."inc/header.inc.php");
 
-	echo cargaCSS("css/usuarios.css");
-	echo cargaJS("js/usuarios.js");
+	echo cargaCSS("http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css");
 
 	$mysqli = new db(false);
 
 	if($_POST['guardar']){
-		$_POST['d_nacimiento'] = $_POST['nac_anho']."-".$_POST['nac_mes']."-".$_POST['nac_dia'];
-		unset($_POST['guardar']);
-		unset($_POST['nac_anho']);
-		unset($_POST['nac_mes']);
-		unset($_POST['nac_dia']);
+		$data['q_sueldo'] = $_POST['q_sueldo'];
+		unset($_POST['q_sueldo']);
 		$_POST['d_fecha_creacion'] = date("Y-m-d H:i:s");
 		$_POST['d_fecha_modificacion'] = date("Y-m-d H:i:s");
 
-		if($mysqli->insert("empleado",$_POST))
-			$msg ='<div id="correcto">El empleadoo fue guardado exitosamente.</div>';
-		else
+		if($mysqli->insert("empleado",$_POST)){
+			$data['id_empleado'] = $mysqli->insert_id;
+			$data['d_fecha'] = $_POST['d_fecha_creacion'];
+			if($mysqli->insert("sueldo", $data))
+				$msg ='<div id="correcto">El empleado fue guardado exitosamente.</div>';
+			else
+				$msg = '<div id="error">Error al insertar el sueldo del empleado.</div>';
+		}else{
 			$msg = '<div id="error">Error al insertar el empleado.</div>';
+		}
 	}
 
 	echo $msg;
@@ -48,9 +50,10 @@
 			<div>
 				<div class="input-leyenda">Fecha de Nacimiento</div>
 				<div>
-					D&iacute;a: <select name="nac_dia"><?php for($n=1;$n<32;$n++) echo '<option value="'.$n.'">'.$n.'</option>'; ?></select>
-					Mes: <select name="nac_mes"><?php for($n=1;$n<13;$n++) echo '<option value="'.$n.'">'.$n.'</option>'; ?></select>
-					A&ntilde;o: <select name="nac_anho"><?php for($n=2011;$n>1900;$n--) echo '<option value="'.$n.'">'.$n.'</option>'; ?></select>
+					D&iacute;a: <select onchange="arregla_fecha();" id="dia"><?php for($n=1;$n<32;$n++) echo '<option value="'.$n.'">'.$n.'</option>'; ?></select>
+					Mes: <select id="mes" onchange="arregla_fecha();"><?php for($n=1;$n<13;$n++) echo '<option value="'.$n.'">'.$n.'</option>'; ?></select>
+					A&ntilde;o: <select id="anho" onchange="arregla_fecha();"><?php for($n=2011;$n>1900;$n--) echo '<option value="'.$n.'">'.$n.'</option>'; ?></select>
+					<input type="hidden" id="fecha-input" name="d_nacimiento" />
 				</div>
 			</div>
 
@@ -79,6 +82,11 @@
 			<div>
 				<div class="input-leyenda">E-Mail</div>
 				<div><input type="text" name="a_email" class="formulario-input" /></div>
+			</div>
+
+			<div>
+				<div class="input-leyenda">Sueldo</div>
+				<div><input type="text" name="q_sueldo" class="formulario-input" /></div>
 			</div>
 
 			<div>

@@ -44,9 +44,40 @@ $(document).ready(function(){
 		changeYear: true,
 		onSelect: function(dateText){
 			var fecha = dateText.split("-");
-			$("#nac_dia option:contains("+parseInt(fecha[2])+")").attr("selected", true);
-			$("#nac_mes option:contains("+parseInt(fecha[1])+")").attr("selected", true);
-			$("#nac_anho option:contains("+fecha[0]+")").attr("selected", true);
+			$("#dia option:eq("+parseInt(fecha[2]-1)+")").attr("selected", true);
+			$("#mes option:eq("+parseInt(fecha[1]-1)+")").attr("selected", true);
+			$("#anho option:contains("+fecha[0]+")").attr("selected", true);
+		}
+	});
+
+	$("#fecha-input2").datepicker({
+		showOn: "both",
+		buttonImage: "/img/calendario.png",
+		buttonImageOnly: true,
+		dateFormat: "yy-mm-dd",
+		closeText: 'Cerrar',
+		prevText: '&#x3c;Ant',
+		nextText: 'Sig&#x3e;',
+		currentText: 'Hoy',
+		monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+		'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+		monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun',
+		'Jul','Ago','Sep','Oct','Nov','Dic'],
+		dayNames: ['Domingo','Lunes','Martes','Mi&eacute;rcoles','Jueves','Viernes','S&aacute;bado'],
+		dayNamesShort: ['Dom','Lun','Mar','Mi&eacute;','Juv','Vie','S&aacute;b'],
+		dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','S&aacute;'],
+		weekHeader: 'Sm',
+		firstDay: 1,
+		isRTL: false,
+		showMonthAfterYear: false,
+		yearSuffix: '',
+		changeMonth: true,
+		changeYear: true,
+		onSelect: function(dateText){
+			var fecha = dateText.split("-");
+			$("#dia2 option:eq("+parseInt(fecha[2]-1)+")").attr("selected", true);
+			$("#mes2 option:eq("+parseInt(fecha[1]-1)+")").attr("selected", true);
+			$("#anho2 option:contains("+fecha[0]+")").attr("selected", true);
 		}
 	});
 	
@@ -56,3 +87,14 @@ $(document).ready(function(){
 		piro_scroll : true
 	});
 });
+
+function arregla_fecha(num){
+	if(num==undefined)
+		num = "";
+
+	fecha = $("#anho"+num).val();
+	fecha += "-" + $("#mes"+num).val();
+	fecha += "-" + $("#dia"+num).val();
+
+	$("#fecha-input"+num).val(fecha);
+}

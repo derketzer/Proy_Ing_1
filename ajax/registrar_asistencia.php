@@ -13,6 +13,7 @@
 			$variables = array(
 				"id_asistencia" => "NULL",
 				"id_empleado" => $id_empleado,
+				"id_campana" => $id_campana,
 				"d_fecha" => date("Y-m-d H:i:s"),
 				"b_asistio"=>"1"
 			);
@@ -23,6 +24,7 @@
 			$variables = array(
 				"id_empleado" => $id_empleado,
 				"DATE(d_fecha)" => date("Y-m-d"),
+				"id_campana" => $id_campana
 			);
 			
 			if($mysqli->delete("asistencia", $variables))
